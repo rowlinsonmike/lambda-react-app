@@ -1,0 +1,34 @@
+service: lambda-react-app
+plugins:
+  - serverless-webpack
+  - serverless-offline
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+    packager: "npm"
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  endpointType: private
+  resourcePolicy:
+    - Effect: Deny
+      Principal: "*"
+      Action: execute-api:Invoke
+      Resource: "arn:aws:execute-api:{{region}}:{{account}}:*/*/*/*"
+      Condition:
+        StringNotEquals:
+          "aws:sourceVpc": { { vpc-id } }
+    - Effect: Allow
+      Principal: "*"
+      Action: execute-api:Invoke
+      Resource: "arn:aws:execute-api:{{region}}:{{account}}:*/*/*/*"
+  region: us-east-1
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http: ANY /
+      - http: "ANY {proxy+}"
+      - cors: true

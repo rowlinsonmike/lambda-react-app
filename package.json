@@ -1,0 +1,35 @@
+{
+  "name": "lambda-react-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "serverless-http": "^2.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-css-modules-transform": "^1.6.2",
+    "babel-plugin-source-map-support": "^2.1.1",
+    "copy-webpack-plugin": "^5.0.4",
+    "css-loader": "^3.1.0",
+    "isomorphic-style-loader": "^5.1.0",
+    "postcss-loader": "^3.0.0",
+    "serverless-offline": "^5.8.0",
+    "serverless-webpack": "^5.3.1",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.29.6",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
